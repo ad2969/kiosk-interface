@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, globalShortcut } from 'electron'
 import {
   createProtocol,
   installVueDevtools
@@ -16,9 +16,18 @@ protocol.registerSchemesAsPrivileged([{scheme: 'app', privileges: { secure: true
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600, webPreferences: {
-    nodeIntegration: true
-  } })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    fullscreen: true,
+    frame: false,
+    autoHideMenuBar: true,
+    kiosk: true,
+
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -71,6 +80,10 @@ app.on('ready', async () => {
 
   }
   createWindow()
+
+  globalShortcut.register('Escape', () => {
+    app.quit();
+  })
 })
 
 // Exit cleanly on request from parent process in development mode.

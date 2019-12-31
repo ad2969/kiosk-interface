@@ -1,37 +1,69 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
+  <div class="background">
+    <div class="container">
+      <h1 class="title">Your Hands,<br/>Their Life.</h1>
+      <router-link to="/tutorial" tag="span" class="start-button">TAP TO START</router-link>
+      <router-link to="" tag="span" class="about-button">about<br/>us</router-link>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Landing',
-  props: {
-    msg: String
-  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.title {
+  font-size: 9rem;
+  font-family: 'Avenir Next Bold';
+  text-align: left;
+  line-height: 100%;
+  margin-bottom: 1rem;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.start-button {
+  font-size: 3rem;
+  font-family: 'Avenir Next Bold';
+  color: white;
+  padding: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: red;
+  border-radius: 15%/50%;
+  float: left;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-a {
-  color: #42b983;
+.about-button {
+  font-size: 2rem;
+  font-family: 'Avenir Next Bold';
+  color: grey;
+  text-align: right;
+  float: right;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 100%;
+  padding-top: 3rem;
 }
+
+.start-button:hover {
+  transform: scale(1.05);
+  transition: all 0.2s;
+}
+.about-button:hover {
+  transform: scale(1.05);
+  transition: all 0.2s;
+}
+
 </style>

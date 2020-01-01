@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <LeftNavBar :numPages = "numPages"
-                :page     = "page"
-                :navigate = "navigate" />
+    <LeftNavBar :numPages="numPages"
+                :page="page"
+                :navigate="navigate" />
     <router-view></router-view>
-    <RightNavBar  :numPages = "numPages"
-                  :page     = "page"
-                  :navigate = "navigate" />
+    <RightNavBar  :numPages="numPages"
+                  :page="page"
+                  :navigate="navigate" />
   </div>
 </template>
 

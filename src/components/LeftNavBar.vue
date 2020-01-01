@@ -1,9 +1,14 @@
 <template>
   <div class="container">
     <div class="navigator">
+
       <template v-for="value in numPages">
-        <div :key="value" class="a"><span :class="navClass(value-1)" @click="navigate(value-1)"></span></div>
+        <div :key="value" class="a">
+          <span :class="navClass(value-1)"
+                @click="navigate(value-1)"></span>
+        </div>
       </template>
+
     </div>
   </div>
 </template>
@@ -39,14 +44,12 @@ export default {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-
 .navigator {
   width: 2.5rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
 }
 
 .navbutton {
@@ -73,12 +76,10 @@ export default {
   width: 100%;
 }
 
-
 .navbutton:not(.navbutton--current):focus,
 .navbutton:not(.navbutton--current):hover {
   transform: scale3d(1, 1, 1);
 }
-
 .navbutton--current::before {
   transform: translate3d(0, 0, 0);
 }

@@ -2,8 +2,12 @@
   <div class="container">
     <h1 class="language">EN</h1>
     <div class="arrows">
-      <Arrow color="lightgrey" :down="false" />
-      <Arrow color="lightgrey" :down="true" />
+      <Arrow :color="validateUp ? 'red' : 'lightgrey' "
+             :down="false"
+             @callback="prev" />
+      <Arrow :color="validateDown ? 'red' : 'lightgrey' "
+             :down="true"
+             @callback="next" />
     </div>
   </div>
 </template>
@@ -15,6 +19,41 @@ export default {
   name: 'RightNavBar',
   components: {
     Arrow
+  },
+  props: {
+    numPages: Number,
+    page: Number,
+    navigate: Function
+  },
+  data() {
+    return {
+      validateUp: false,
+      validateDown: true
+    }
+  },
+  watch: {
+    page: function(val) {
+      if(val === (this.numPages - 1)) {
+        this.validateUp = true;
+        this.validateDown = false;
+      }
+      else if(val === 0) {
+        this.validateUp = false;
+        this.validateDown = true;
+      }
+      else {
+        this.validateUp = true;
+        this.validateDown = true;
+      }
+    }
+  },
+  methods: {
+    next: function() {
+      if(this.validateDown) this.navigate(this.page + 1)
+    },
+    prev: function() {
+      if(this.validateUp) this.navigate(this.page - 1)
+    }
   }
 }
 </script>

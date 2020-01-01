@@ -1,18 +1,9 @@
 <template>
   <div class="container">
     <div class="navigator">
-      <div class="a">
-        <span :class="navClass(0)" @click="navigate(0)"></span>
-      </div>
-      <div class="a">
-        <span :class="navClass(1)" @click="navigate(1)"></span>
-      </div>
-      <div class="a">
-        <span :class="navClass(2)" @click="navigate(2)"></span>
-      </div>
-      <div class="a">
-        <span :class="navClass(3)" @click="navigate(3)"></span>
-      </div>
+      <template v-for="value in numPages">
+        <div :key="value" class="a"><span :class="navClass(value-1)" @click="navigate(value-1)"></span></div>
+      </template>
     </div>
   </div>
 </template>
@@ -20,18 +11,12 @@
 <script>
 export default {
   name: 'LeftNavBar',
-  data() {
-    return {
-      page: 1
-    }
-  },
-  computed: {
+  props: {
+    numPages: Number,
+    page: Number,
+    navigate: Function
   },
   methods: {
-    navigate: function(id) {
-      this.page = id;
-      console.log("changing page to ", id);
-    },
     navClass: function(id) {
       return this.page === id ? "navbutton navbutton--current" : "navbutton";
     }

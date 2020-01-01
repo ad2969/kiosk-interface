@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <LeftNavBar/>
+    <LeftNavBar :numPages = "numPages"
+                :page     = "page"
+                :navigate = "navigate" />
     <router-view></router-view>
-    <RightNavBar/>
+    <RightNavBar  :numPages = "numPages"
+                  :page     = "page"
+                  :navigate = "navigate" />
   </div>
 </template>
 
@@ -15,6 +19,18 @@ export default {
   components: {
     RightNavBar,
     LeftNavBar
+  },
+  data() {
+    return {
+      numPages: 4,
+      page: 0
+    }
+  },
+  methods: {
+    navigate: function(id) {
+      this.page = id;
+      console.log("changing page to ", id);
+    }
   }
 }
 </script>

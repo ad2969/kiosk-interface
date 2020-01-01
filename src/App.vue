@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <LeftNavBar :numPages="numPages"
+    <LeftNavBar v-if="page !== 0"
+                :numPages="numPages"
                 :page="page"
                 :navigate="navigate" />
     <router-view></router-view>
-    <RightNavBar  :numPages="numPages"
-                  :page="page"
-                  :navigate="navigate" />
+    <RightNavBar v-if="page !== 0"
+                 :numPages="numPages"
+                 :page="page"
+                 :navigate="navigate" />
   </div>
 </template>
 
@@ -28,8 +30,30 @@ export default {
   },
   methods: {
     navigate: function(id) {
+      switch(id) {
+        case 0:
+          this.$router.push("/");
+          break;
+        case 1:
+          this.$router.push("/tutorial");
+          break;
+        case 2:
+          this.$router.push("/practice");
+          break;
+        case 3:
+          this.$router.push("/assessment");
+          break;
+        default:
+          break;
+      }
       this.page = id;
       console.log("changing page to ", id);
+    }
+  },
+  watch: {
+    $route(to) {
+      this.page = parseInt(to.name);
+      console.log('Routing to', to.name);
     }
   }
 }

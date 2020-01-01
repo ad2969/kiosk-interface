@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>Tutorial Here</h1>
+    <h1>Practice Here</h1>
     <router-link to="/" tag="h2" class="start-button">back</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Tutorial',
+  name: 'Practice',
 }
 </script>
 

@@ -91,5 +91,55 @@ export default {
   user-select: none;
 }
 
+html {
+  font-size: 14px;
+}
 
+@media only screen and (max-width: 1100px) {
+  html {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-height: 500px) {
+  html {
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+
+@media only screen and (min-width: 1300px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  html {
+    font-size: 26px;
+  }
+}
+@media only screen and (min-width: 3000px) {
+  html {
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 4000px) {
+  html {
+    font-size: 50px;
+  }
+}
 </style>

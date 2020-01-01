@@ -1,13 +1,21 @@
 <template>
   <div id="app">
+    <LeftNavBar/>
     <router-view></router-view>
+    <RightNavBar/>
   </div>
 </template>
 
 <script>
+import RightNavBar from '@/components/RightNavBar'
+import LeftNavBar from '@/components/LeftNavBar'
 
 export default {
   name: 'app',
+  components: {
+    RightNavBar,
+    LeftNavBar
+  }
 }
 </script>
 
@@ -79,6 +87,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 95vh;
+  user-select: none;
 }
+
+
 </style>

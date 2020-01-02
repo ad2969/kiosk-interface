@@ -40,7 +40,8 @@ export default {
 <style>
 .video-js {
   margin: 0 auto;
-  max-width: 75%;
+  width:calc(100% - 18rem);
+  min-width: 70vw;
   max-height: 70vh;
   height: 70vh;
   overflow: hidden;

@@ -76,7 +76,7 @@ export default {
 <style scoped>
 .container {
   height: 95vh;
-  width: 11rem;
+  width: 9rem;
   position: absolute;
   right: 0;
   top: 0;
@@ -87,6 +87,7 @@ export default {
   font-size: 3rem;
   transition: all 0.2s;
   cursor: pointer;
+  margin-top: 4rem;
 }
 .language:hover {
   color: black;

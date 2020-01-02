@@ -30,7 +30,7 @@ export default {
 </script>
 <style>
 .arrow {
-  margin-left: 3rem;
+  margin-left: 2.5rem;
   margin-top: 1rem;
   transition: all 0.2s;
   cursor: pointer;

@@ -18,7 +18,7 @@ export default new Router({
     },
     {
       path: '/tutorial',
-      name: '1 Interactive',
+      name: '1 Interactive Tutorial',
       component: Tutorial
     },
     {

@@ -1,14 +1,15 @@
 <template>
   <div class="container">
+    <div class="page-title">
+      <span class="page-title__num">0{{page}}</span><span class="page-title__title">{{pageTitle}}</span>
+    </div>
     <div class="navigator">
-
       <template v-for="value in numPages">
         <div :key="value" class="a"
              @click="navigate(value-1)">
           <span :class="navClass(value-1)"></span>
         </div>
       </template>
-
     </div>
   </div>
 </template>
@@ -19,7 +20,8 @@ export default {
   props: {
     numPages: Number,
     page: Number,
-    navigate: Function
+    navigate: Function,
+    pageTitle: String
   },
   methods: {
     navClass: function(id) {
@@ -37,7 +39,26 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
+
+  white-space: nowrap;
 }
+
+.page-title {
+  display: flex;
+  font-size: 4rem;
+  font-family: 'Avenir Next Bold';
+  margin-top: 3.5rem;
+}
+.page-title__num {
+  color: red;
+  right: 0;
+  text-align: center;
+  min-width: 7.5rem;
+  padding-left: 1.5rem;
+}
+.page-title__title {
+}
+
 .a {
   height: 2.5rem;
   width: 2.5rem;

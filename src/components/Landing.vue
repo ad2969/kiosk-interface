@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <div class="container">
+    <div class="content">
       <h1 class="title">Your Hands,<br/>Their Life.</h1>
       <router-link to="/tutorial" tag="span" class="start-button">TAP TO START</router-link>
       <router-link to="" tag="span" class="about-button">about<br/>us</router-link>

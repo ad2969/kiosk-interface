@@ -3,7 +3,7 @@
     <div class="page-title">
       <span class="page-title__num">0{{page}}</span><span class="page-title__title">{{pageTitle}}</span>
     </div>
-    <div class="navigator">
+    <div class="navigator" v-if="!busy">
       <template v-for="value in numPages">
         <div :key="value" class="a"
              @click="navigate(value-1)">
@@ -21,7 +21,8 @@ export default {
     numPages: Number,
     page: Number,
     navigate: Function,
-    pageTitle: String
+    pageTitle: String,
+    busy: Boolean
   },
   methods: {
     navClass: function(id) {

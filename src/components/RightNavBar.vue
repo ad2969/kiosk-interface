@@ -2,10 +2,12 @@
   <div class="container">
     <h1 class="language">EN</h1>
     <div class="arrows">
-      <Arrow :active="validateUp"
+      <Arrow v-if="!busy"
+             :active="validateUp"
              :down="false"
              @callback="prev" />
-      <Arrow :active="validateDown"
+      <Arrow v-if="!busy"
+             :active="validateDown"
              :down="true"
              @callback="next" />
     </div>
@@ -23,7 +25,8 @@ export default {
   props: {
     numPages: Number,
     page: Number,
-    navigate: Function
+    navigate: Function,
+    busy: Boolean
   },
   data() {
     return {

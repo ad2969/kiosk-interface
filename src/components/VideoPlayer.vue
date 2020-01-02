@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .video-js {
   margin: 0 auto;
   width:calc(100% - 18rem);

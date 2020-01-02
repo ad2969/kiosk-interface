@@ -137,6 +137,8 @@ export default {
   color: black;
   height: 95vh;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 html {

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>Assessment Here</h1>
-    <router-link to="/" tag="h2" class="start-button">back</router-link>
   </div>
 </template>
 

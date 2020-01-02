@@ -15,7 +15,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 .background {
   display: flex;
   flex-direction: column;
@@ -36,11 +36,11 @@ export default {
 .start-button {
   font-size: 3rem;
   font-family: 'Avenir Next Bold';
-  color: white;
+  color: $white;
   padding: 1.5rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: red;
+  background-color: $red;
   border-radius: 15%/50%;
   float: left;
   cursor: pointer;
@@ -49,7 +49,7 @@ export default {
 .about-button {
   font-size: 2rem;
   font-family: 'Avenir Next Bold';
-  color: grey;
+  color: $grey;
   text-align: right;
   float: right;
   cursor: pointer;

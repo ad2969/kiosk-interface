@@ -2,10 +2,10 @@
   <div class="container">
     <h1 class="language">EN</h1>
     <div class="arrows">
-      <Arrow :color="validateUp ? 'red' : 'lightgrey' "
+      <Arrow :active="validateUp"
              :down="false"
              @callback="prev" />
-      <Arrow :color="validateDown ? 'red' : 'lightgrey' "
+      <Arrow :active="validateDown"
              :down="true"
              @callback="next" />
     </div>
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 .container {
   height: 95vh;
   width: 9rem;
@@ -83,14 +83,14 @@ export default {
 }
 
 .language {
-  color: lightgrey;
+  color: $grey;
   font-size: 3rem;
   transition: all 0.2s;
   cursor: pointer;
   margin-top: 4rem;
 }
 .language:hover {
-  color: black;
+  color: $black;
   transition: all 0.2s;
   cursor: pointer;
 }

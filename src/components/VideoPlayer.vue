@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .video-js {
   margin: 0 auto;
   width:calc(100% - 18rem);
@@ -58,14 +58,14 @@ export default {
 }
 
 .vjs-play-progress {
-  background-color: #dd2111 !important;
+  background-color: $red !important;
 }
 .vjs-slider {
   background-color: rgba(102, 102, 102, 0.5);
 }
 .vjs-progress-control {
   background-color: rgba(242, 242, 242, 0.9);
-  color: #dd2111;
+  color: $red;
 }
 
 </style>

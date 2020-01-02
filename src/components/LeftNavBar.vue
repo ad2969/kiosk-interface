@@ -32,7 +32,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 .container {
   height: 95vh;
   width: 9rem;
@@ -50,7 +50,7 @@ export default {
   margin-top: 3.5rem;
 }
 .page-title__num {
-  color: red;
+  color: $red;
   right: 0;
   text-align: center;
   min-width: 7.5rem;
@@ -75,7 +75,7 @@ export default {
 }
 
 .navbutton {
-  background: lightgrey;
+  background: $grey;
   border-radius: 50%;
   cursor: pointer;
   height: 2.5rem;
@@ -89,7 +89,7 @@ export default {
   left: 0;
 }
 .navbutton::before {
-  background: red;
+  background: $red;
   content: '';
   height: 100%;
   left: 0;

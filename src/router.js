@@ -18,17 +18,17 @@ export default new Router({
     },
     {
       path: '/tutorial',
-      name: '1',
+      name: '1 Interactive',
       component: Tutorial
     },
     {
       path: '/practice',
-      name: '2',
+      name: '2 Practice',
       component: Practice
     },
     {
       path: '/assessment',
-      name: '3',
+      name: '3 Assessment',
       component: Assessment
     },
     {

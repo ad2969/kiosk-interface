@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      validateUp: false,
+      validateUp: true,
       validateDown: true
     }
   },
@@ -53,6 +53,20 @@ export default {
     },
     prev: function() {
       if(this.validateUp) this.navigate(this.page - 1)
+    }
+  },
+  mounted() {
+    if(this.page === (this.numPages - 1)) {
+      this.validateUp = true;
+      this.validateDown = false;
+    }
+    else if(this.page === 0) {
+      this.validateUp = false;
+      this.validateDown = true;
+    }
+    else {
+      this.validateUp = true;
+      this.validateDown = true;
     }
   }
 }

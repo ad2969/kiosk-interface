@@ -3,7 +3,8 @@
     <LeftNavBar v-if="page !== 0"
                 :numPages="numPages"
                 :page="page"
-                :navigate="navigate" />
+                :navigate="navigate"
+                :pageTitle="pageTitle" />
     <router-view></router-view>
     <RightNavBar v-if="page !== 0"
                  :numPages="numPages"
@@ -25,7 +26,8 @@ export default {
   data() {
     return {
       numPages: 4,
-      page: 0
+      page: 0,
+      pageTitle: 'Page'
     }
   },
   methods: {
@@ -44,17 +46,23 @@ export default {
           this.$router.push("/assessment");
           break;
         default:
+          console.error("Error Navigating: Index doesn't exist!");
+          this.$router.push("/");
           break;
       }
       this.page = id;
-      console.log("changing page to ", id);
-    }
+      }
   },
   watch: {
     $route(to) {
-      this.page = parseInt(to.name);
+      this.page = parseInt(to.name[0]);
+      this.pageTitle = to.name.slice(1);
       console.log('Routing to', to.name);
     }
+  },
+  mounted() {
+    this.page = parseInt(this.$route.name[0]);
+    this.pageTitle = this.$route.name.slice(1);
   }
 }
 </script>

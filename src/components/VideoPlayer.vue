@@ -1,0 +1,70 @@
+<template>
+  <div>
+    <video ref="videoPlayer" class="video-js"></video>
+  </div>
+</template>
+
+<script>
+import videojs from 'video.js';
+
+export default {
+  name: "VideoPlayer",
+  props: {
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  data() {
+    return {
+      player: null
+    }
+  },
+
+  mounted() {
+    this.player = videojs(this.$refs.videoPlayer, this.options,
+                  function onPlayerReady() {
+                    console.log('onPlayerReady', this);
+                  })
+  },
+  beforeDestroy() {
+    if(this.player) {
+      this.player.dispose();
+    }
+  }
+}
+</script>
+
+<style>
+.video-js {
+  margin: 0 auto;
+  max-width: 75%;
+  max-height: 70vh;
+  height: 70vh;
+  overflow: hidden;
+}
+.vjs-volume-panel,
+.vjs-picture-in-picture-control,
+.vjs-remaining-time,
+.vjs-fullscreen-control,
+.vjs-play-control {
+  display: none !important;
+}
+.vjs-progress-control {
+  padding: 1rem !important;
+}
+
+.vjs-play-progress {
+  background-color: #dd2111 !important;
+}
+.vjs-slider {
+  background-color: rgba(102, 102, 102, 0.5);
+}
+.vjs-progress-control {
+  background-color: rgba(242, 242, 242, 0.9);
+  color: #dd2111;
+}
+
+</style>

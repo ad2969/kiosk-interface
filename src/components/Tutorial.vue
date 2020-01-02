@@ -1,13 +1,31 @@
 <template>
   <div>
-    <h1>Tutorial Here</h1>
-    <router-link to="/" tag="h2" class="start-button">back</router-link>
+      <video-player class="video-player" :options="videoOptions" />
   </div>
 </template>
 
 <script>
+import VideoPlayer from '@/components/VideoPlayer.vue';
+
 export default {
   name: 'Tutorial',
+  components: {
+    VideoPlayer
+  },
+  data() {
+    return {
+      videoOptions: {
+        autoplay: true,
+        controls: true,
+        sources: [
+          {
+            src: 'http://vjs.zencdn.net/v/oceans.mp4',
+            type: 'video/mp4'
+          }
+        ]
+      }
+    }
+  }
 }
 </script>
 
@@ -15,6 +33,9 @@ export default {
 <style scoped>
 h2 {
   cursor: pointer;
+}
+.video-player {
+  padding-top: 20vh;
 }
 
 </style>

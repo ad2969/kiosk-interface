@@ -3,9 +3,9 @@
     <div class="navigator">
 
       <template v-for="value in numPages">
-        <div :key="value" class="a">
-          <span :class="navClass(value-1)"
-                @click="navigate(value-1)"></span>
+        <div :key="value" class="a"
+             @click="navigate(value-1)">
+          <span :class="navClass(value-1)"></span>
         </div>
       </template>
 
@@ -43,6 +43,7 @@ export default {
   width: 2.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
 }
 .navigator {
   width: 2.5rem;
@@ -63,6 +64,8 @@ export default {
   transition: transform 0.5s ease;
   width: 2.5rem;
   position: absolute;
+
+  left: 0;
 }
 .navbutton::before {
   background: red;

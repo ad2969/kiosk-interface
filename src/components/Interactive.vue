@@ -1,6 +1,14 @@
 <template>
   <div class="background">
     <router-link to="/assessment" tag="div" class="back">BACK</router-link>
+
+    <div class="content--cover" v-if="!started" @click="beginCountdown">
+      <div class="desc">
+        <span class="large">Start CPR<br/>Start Timer</span>
+        <span class="tiny">to</span>
+      </div>
+    </div>
+
     <div class="content" v-if="!completed">
       <div :class="timerClass"><span class="timer__num">{{timer}}</span>sec</div>
       <div class="progress">
@@ -25,8 +33,9 @@ export default {
   name: 'Interactive',
   data() {
     return {
+      started: false,
       paused: true,
-      timer: 2,
+      timer: 90,
       redTime: 30,
       countdown: null,
       completed: false,
@@ -45,6 +54,12 @@ export default {
     },
     decrement: function() {
       this.timer = this.timer - 1;
+    },
+    beginCountdown: function() {
+      this.started = true;
+      this.timer = 90;
+      this.paused = true;
+      this.playpause();
     }
   },
   computed: {
@@ -58,7 +73,8 @@ export default {
   },
   watch: {
     timer: function(value) {
-      if(value == 0) {
+      this.timer = ("0" + value).slice(-2)
+      if(value == "00") {
         clearInterval(this.countdown);
         setTimeout(() => { this.completed = true; }, 2000);
         setTimeout(() => { this.$router.push('/assessment/results') }, 5000);
@@ -71,11 +87,43 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 
+// REMOVE
 .back {
   position: absolute;
   top: 10rem;
   cursor: pointer;
   color: $red;
+}
+
+.content--cover {
+  background-color: rgba(255,255,255,0.9);
+  width: 100%;
+  top: 20vh;
+  height: 80vh;
+  position: absolute;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  .large {
+    font-size: 4rem;
+    line-height: 100%;
+    text-align: right;
+    padding-right: 1rem;
+  }
+  .tiny {
+    font-size: 3rem;
+  }
+  .desc {
+    padding-bottom: 10rem;
+    display: flex;
+    font-family: 'Avenir Next Bold';
+    color: $darkgrey;
+  }
+  &:hover { opacity: 0.8; }
 }
 
 .background {

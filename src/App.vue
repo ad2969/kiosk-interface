@@ -35,6 +35,7 @@ export default {
   },
   methods: {
     navigate: function(id) {
+      if(this.page == id) return;
       switch(id) {
         case 0:
           this.$router.push("/");

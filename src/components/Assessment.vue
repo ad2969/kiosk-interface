@@ -1,9 +1,12 @@
 <template>
   <div class="background">
     <div class="content">
-      <div class="desc">60 seconds.<br />Hands-only CPR.</div>
+      <div class="desc">
+        60 {{ $t('assessment.seconds') }}.<br />
+        <span class="t--capitalize">{{ $t('assessment.instructions') }}.</span>
+      </div>
       <router-link to="/assessment/interactive" tag="div" class="button">
-        <div class="button--go">Let's Go</div>
+        <div class="button--go">{{ $t('assessment.go') }}</div>
         <div class="button--arrow"><span>➤</span></div>
       </router-link>
     </div>
@@ -64,10 +67,11 @@ export default {
 
   .button--go {
     font-size: 5rem;
-    max-width: 50%;
+    max-width: 40%;
     text-align: right;
     line-height: 100%;
     color: $white;
+    overflow-wrap: break-word;
   }
 
   .button--arrow {

@@ -15,8 +15,17 @@ const messages = {
             one: 'interactive tutorial',
             two: 'practice',
             three: 'assessment',
-            four: '',
-            five: 'assessment results',
+            four: 'assessment results',
+            empty: '',
+        },
+        assessment: {
+            seconds: 'seconds',
+            secondsShort: 'sec',
+            instructions: 'hands-only CPR',
+            go: "let's go",
+            start1: 'start CPR',
+            toStart: 'to',
+            start2: 'start timer',
         }
 
     },
@@ -31,8 +40,17 @@ const messages = {
             one: 'tutoriel interactif',
             two: 'entraine toi',
             three: 'évaluation',
-            four: '',
-            five: "résultats de l'évaluation",
+            four: "résultats de l'évaluation",
+            empty: '',
+        },
+        assessment: {
+            seconds: 'secondes',
+            secondsShort: 'sec',
+            instructions: 'CPR mains-libres',
+            go: "commençons",
+            start1: 'démarrer la CPR',
+            toStart: 'pour',
+            start2: 'démarrer la minuterie',
         }
     },
     'zh': {
@@ -46,8 +64,17 @@ const messages = {
             one: 'interactive tutorial',
             two: 'practice',
             three: 'assessment',
-            four: '',
-            five: 'assessment results',
+            four: 'assessment results',
+            empty: '',
+        },
+        assessment: {
+            seconds: 'seconds',
+            secondsShort: 'sec',
+            instructions: '',
+            go: "let's go",
+            start1: 'start CPR',
+            toStart: 'to',
+            start2: 'start timer',
         }
     }
 };

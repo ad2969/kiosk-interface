@@ -39,15 +39,15 @@ export default new Router({
     },
     {
       path: '/assessment/interactive',
-      name: '3',
+      name: '3 ',
       component: Interactive,
-      props: { title: 'titles.four' }
+      props: { title: 'titles.empty' }
     },
     {
       path: '/assessment/results',
-      name: '3',
+      name: '4',
       component: Results,
-      props: { title: 'titles.five' }
+      props: { title: 'titles.four' }
     },
     {
       path: '*',

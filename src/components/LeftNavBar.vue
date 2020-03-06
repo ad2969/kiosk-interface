@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="page-title">
-      <span class="page-title__num">0{{ $t(page) }}</span>
+      <span class="page-title__num">0{{ page }}</span>
       <span class="page-title__title t--capitalize">{{ $t(pageTitle)}}</span>
     </div>
     <div class="navigator" v-if="!busy">

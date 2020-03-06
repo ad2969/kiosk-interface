@@ -13,13 +13,11 @@
         >{{ locale }}</div>
       </div>
     </div>
-    <div class="arrows">
-      <Arrow v-if="!busy"
-             :active="validateUp"
+    <div v-if="!busy" class="arrows">
+      <Arrow :active="validateUp"
              :down="false"
              @callback="prev" />
-      <Arrow v-if="!busy"
-             :active="validateDown"
+      <Arrow :active="validateDown"
              :down="true"
              @callback="next" />
     </div>
@@ -68,7 +66,6 @@ export default {
       }
     },
     languageDropdown: function() {
-      console.log('change!')
       this.currentLocale = i18n.locale;
       this.filteredAvailableLocales = i18n.availableLocales.filter((locale) => locale !== i18n.locale);
     }

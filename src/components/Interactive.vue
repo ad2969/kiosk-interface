@@ -1,16 +1,25 @@
 <template>
   <div class="background">
-    <router-link to="/assessment" tag="div" class="back">BACK</router-link>
+    <div class="back">
+      <router-link to="/assessment" tag="span">BACK</router-link> -- 
+      <router-link to="/assessment/results" tag="span">ONWARD</router-link>
+    </div>
 
     <div class="content--cover" v-if="!started" @click="beginCountdown">
       <div class="desc">
-        <span class="large">Start CPR<br/>Start Timer</span>
-        <span class="tiny">to</span>
+        <span class="large t--capitalize">
+          {{ $t('assessment.start1') }}<br/>
+          {{ $t('assessment.start2') }}
+        </span>
+        <span class="tiny">{{ $t('assessment.toStart') }}</span>
       </div>
     </div>
 
     <div class="content" v-if="!completed">
-      <div :class="timerClass"><span class="timer__num">{{timer}}</span>sec</div>
+      <div :class="timerClass">
+        <span class="timer__num">{{timer}}</span>
+        {{ $t('assessment.secondsShort') }}
+      </div>
       <div class="progress">
         <span class="progress__bar" :style="progressWidth"></span>
       </div>

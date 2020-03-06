@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      numPages: 4,
+      numPages: 5,
       page: 0,
       pageTitle: 'page',
       assessing: false,
@@ -66,7 +66,7 @@ export default {
         this.page = parseInt(to.name);
         this.pageTitle = to.matched[0].props.default.title;
 
-        if(this.page == 3 && !this.pageTitle) this.assessing = true;
+        if(this.pageTitle === 'titles.empty') this.assessing = true;
         else this.assessing = false;
       }
     }

@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      numPages: 5-1,
+      numPages: 4,
       page: 0,
       pageTitle: 'Page',
       assessing: false,
@@ -60,22 +60,17 @@ export default {
     }
   },
   watch: {
-    $route(to) {
-      this.page = parseInt(to.name[0]);
-      this.pageTitle = to.name.slice(1);
-      console.log('Routing to', to.name);
+    $route: {
+      immediate: true,
+      handler(to) {
+        this.page = parseInt(to.name);
+        this.pageTitle = to.matched[0].props.default.title;
 
-      if(this.page == 3 && !this.pageTitle) this.assessing = true;
-      else this.assessing = false;
+        if(this.page == 3 && !this.pageTitle) this.assessing = true;
+        else this.assessing = false;
+      }
     }
   },
-  mounted() {
-    this.page = parseInt(this.$route.name[0]);
-    this.pageTitle = this.$route.name.slice(1);
-
-    if(this.page == 3 && !this.pageTitle) this.assessing = true;
-    else this.assessing = false;
-  }
 }
 </script>
 

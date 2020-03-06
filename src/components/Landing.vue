@@ -2,8 +2,14 @@
   <div class="background">
     <div class="content">
       <h1 class="title t--capitalize">{{ $t("landing.title") }}</h1>
-      <router-link to="/tutorial" tag="span" class="start-button">TAP TO START</router-link>
-      <router-link to="" tag="span" class="about-button">about<br/>us</router-link>
+      <router-link to="/tutorial"
+                   tag="span"
+                   class="start-button t--uppercase"
+      >{{ $t("landing.start") }}</router-link>
+      <router-link to=""
+                   tag="span"
+                   class="about-button t--lowercase"
+      >{{ $t('landing.aboutUs1') }}<br/>{{ $t('landing.aboutUs2') }}</router-link>
     </div>
   </div>
 </template>

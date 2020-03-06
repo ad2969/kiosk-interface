@@ -16,32 +16,38 @@ export default new Router({
     {
       path: '/',
       name: '0',
-      component: Landing
+      component: Landing,
+      props: { title: '' }
     },
     {
       path: '/tutorial',
-      name: '1 Interactive Tutorial',
-      component: Tutorial
+      name: '1',
+      component: Tutorial,
+      props: { title: 'Interactive Tutorial' }
     },
     {
       path: '/practice',
-      name: '2 Practice',
-      component: Practice
+      name: '2',
+      component: Practice,
+      props: { title: 'Practice' }
     },
     {
       path: '/assessment',
-      name: '3 Assessment',
-      component: Assessment
+      name: '3',
+      component: Assessment,
+      props: { title: 'Assessment' }
     },
     {
       path: '/assessment/interactive',
       name: '3',
-      component: Interactive
+      component: Interactive,
+      props: { title: '' }
     },
     {
       path: '/assessment/results',
-      name: '3 Assessment Results',
-      component: Results
+      name: '3',
+      component: Results,
+      props: { title: 'Assessment Results' }
     },
     {
       path: '*',

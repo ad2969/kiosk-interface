@@ -11,12 +11,12 @@ const messages = {
             aboutUs1: 'about',
             aboutUs2: 'us',
         },
-
         titles: {
             one: 'interactive tutorial',
             two: 'practice',
             three: 'assessment',
-            four: 'assessment results',
+            four: '',
+            five: 'assessment results',
         }
 
     },
@@ -26,14 +26,28 @@ const messages = {
             start: 'commencer',
             aboutUs1: 'à propos',
             aboutUs2: 'de nous',
+        },
+        titles: {
+            one: 'tutoriel interactif',
+            two: 'entraine toi',
+            three: 'évaluation',
+            four: '',
+            five: "résultats de l'évaluation",
         }
     },
     'zh': {
         landing: {
-            title: '你的手，他们的生活.',
+            title: 'your hands, their life.',
             start: 'tap to start',
             aboutUs1: 'about',
             aboutUs2: 'us',
+        },
+        titles: {
+            one: 'interactive tutorial',
+            two: 'practice',
+            three: 'assessment',
+            four: '',
+            five: 'assessment results',
         }
     }
 };

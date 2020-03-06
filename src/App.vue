@@ -28,7 +28,7 @@ export default {
     return {
       numPages: 4,
       page: 0,
-      pageTitle: 'Page',
+      pageTitle: 'page',
       assessing: false,
     }
   },

@@ -23,31 +23,31 @@ export default new Router({
       path: '/tutorial',
       name: '1',
       component: Tutorial,
-      props: { title: 'Interactive Tutorial' }
+      props: { title: 'titles.one' }
     },
     {
       path: '/practice',
       name: '2',
       component: Practice,
-      props: { title: 'Practice' }
+      props: { title: 'titles.two' }
     },
     {
       path: '/assessment',
       name: '3',
       component: Assessment,
-      props: { title: 'Assessment' }
+      props: { title: 'titles.three' }
     },
     {
       path: '/assessment/interactive',
       name: '3',
       component: Interactive,
-      props: { title: '' }
+      props: { title: 'titles.four' }
     },
     {
       path: '/assessment/results',
       name: '3',
       component: Results,
-      props: { title: 'Assessment Results' }
+      props: { title: 'titles.five' }
     },
     {
       path: '*',

@@ -7,8 +7,7 @@
                 :pageTitle="pageTitle"
                 :busy="assessing" />
     <router-view></router-view>
-    <RightNavBar v-if="page !== 0"
-                 :numPages="numPages"
+    <RightNavBar :numPages="numPages"
                  :page="page"
                  :navigate="navigate"
                  :busy="assessing" />

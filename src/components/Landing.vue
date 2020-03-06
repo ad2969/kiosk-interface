@@ -1,7 +1,7 @@
 <template>
   <div class="background">
     <div class="content">
-      <h1 class="title">Your Hands,<br/>Their Life.</h1>
+      <h1 class="title t--capitalize">{{ $t("landing.title") }}</h1>
       <router-link to="/tutorial" tag="span" class="start-button">TAP TO START</router-link>
       <router-link to="" tag="span" class="about-button">about<br/>us</router-link>
     </div>
@@ -31,6 +31,7 @@ export default {
   text-align: left;
   line-height: 100%;
   margin-bottom: 1rem;
+  max-width: 60vw;
 }
 
 .start-button {

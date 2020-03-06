@@ -1,6 +1,18 @@
 <template>
   <div class="container">
-    <h1 class="language">EN</h1>
+    <div class="language-wrapper">
+      <h1 :class="languageDropdown ? 'language--active' : 'language'"
+          @click="openLanguageDropdown">{{ currentLocale }}</h1>
+      <div :class="languageDropdown ? 'dropdown--active' : 'dropdown'"
+          v-if="languageDropdown"
+          v-on-clickaway="closeLanguageDropdown">
+        <div v-for="locale in filteredAvailableLocales"
+             :key="`localeOption-${locale}`"
+             @click="changeLanguage(locale)"
+             class="language t--uppercase"
+        >{{ locale }}</div>
+      </div>
+    </div>
     <div class="arrows">
       <Arrow v-if="!busy"
              :active="validateUp"
@@ -16,6 +28,8 @@
 
 <script>
 import Arrow from './Arrow.vue'
+import { mixin as clickaway } from 'vue-clickaway'
+import i18n from '@/i18n.js'
 
 export default {
   name: 'RightNavBar',
@@ -28,10 +42,14 @@ export default {
     navigate: Function,
     busy: Boolean
   },
+  mixins: [ clickaway ],
   data() {
     return {
       validateUp: true,
-      validateDown: true
+      validateDown: true,
+      languageDropdown: false,
+      filteredAvailableLocales: i18n.availableLocales,
+      currentLocale: i18n.locale
     }
   },
   watch: {
@@ -48,6 +66,11 @@ export default {
         this.validateUp = true;
         this.validateDown = true;
       }
+    },
+    languageDropdown: function() {
+      console.log('change!')
+      this.currentLocale = i18n.locale;
+      this.filteredAvailableLocales = i18n.availableLocales.filter((locale) => locale !== i18n.locale);
     }
   },
   methods: {
@@ -56,6 +79,16 @@ export default {
     },
     prev: function() {
       if(this.validateUp) this.navigate(this.page - 1)
+    },
+    closeLanguageDropdown: function() {
+      this.languageDropdown = false;
+    },
+    openLanguageDropdown: function() {
+      this.languageDropdown = true;
+    },
+    changeLanguage: function(lang) {
+      i18n.locale = lang;
+      this.languageDropdown = false;
     }
   },
   mounted() {
@@ -85,17 +118,35 @@ export default {
   top: 0;
 }
 
-.language {
+.language-wrapper {
+  margin-top: 4rem;
+}
+
+.language, .language--active {
+  @extend .t--uppercase;
   color: $grey;
   font-size: 3rem;
   transition: all 0.2s;
   cursor: pointer;
-  margin-top: 4rem;
+  margin: 1rem auto;
 }
 .language:hover {
   color: $black;
   transition: all 0.2s;
   cursor: pointer;
+}
+.language--active {
+  color: $black;
+}
+
+.dropdown, .dropdown--active {
+  transition: all 0.2s;
+}
+.dropdown {
+  opacity: 0;
+}
+.dropdown--active {
+  opacity: 1;
 }
 
 .arrows {

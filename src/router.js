@@ -17,7 +17,7 @@ export default new Router({
       path: '/',
       name: '0',
       component: Landing,
-      props: { title: '' }
+      props: { title: 'titles.empty' }
     },
     {
       path: '/tutorial',

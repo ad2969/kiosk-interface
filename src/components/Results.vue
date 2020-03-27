@@ -13,9 +13,36 @@ export default {
   name: "Results",
   methods: {
     async send() {
-      fireDb.createDocument({
-        object: "string"
-      });
+      try {
+        fireDb.createDocument({
+          session: "LOL",
+          secondsSpentVideo: 120,
+          practiceSecondsSpent: 10,
+          practiceAverageCpm: 80.28,
+          practiceDistanceData: [
+            10,
+            123,
+            1,
+            112,
+            1,
+            124,
+            1,
+            21,
+            2,
+            1,
+            41,
+            2,
+            12,
+            1
+          ],
+          practiceScore: 10,
+          practiceStartTime: Date()
+        });
+      } catch (error) {
+        console.log("Firebase create document failed");
+        console.log(error);
+      }
+
       console.log("Firebase creates an object called string");
     }
   }

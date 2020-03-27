@@ -23,11 +23,11 @@ const settings = {
     cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
 }
 db.settings(settings)
-db.enablePersistence().catch(
-    function (err) {
-        console.log(err)
-    }
-)
+// db.enablePersistence().catch(
+//     function (err) {
+//         console.log(err)
+//     }
+// )
 const cprTrialsCollection = 'cpr_trials'
 firebase.analytics()
 

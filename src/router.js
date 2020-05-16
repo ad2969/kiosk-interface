@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Landing from '@/components/Landing'
-import Tutorial from '@/components/Tutorial'
-import Practice from '@/components/Practice'
-import Assessment from '@/components/Assessment'
-import Interactive from '@/components/Interactive'
-import Results from '@/components/Results'
+import Landing from '@/views/Landing'
+import Tutorial from '@/views/Tutorial'
+import Practice from '@/views/Practice'
+import Assessment from '@/views/Assessment'
+import Interactive from '@/views/Interactive'
+import Results from '@/views/Results'
 
 Vue.use(Router)
 

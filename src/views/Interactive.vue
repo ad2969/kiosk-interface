@@ -44,8 +44,8 @@ export default {
     return {
       started: false,
       paused: true,
-      timer: 90,
-      redTime: 30,
+      timer: 30,
+      redTime: 10,
       countdown: null,
       completed: false,
     }
@@ -66,7 +66,7 @@ export default {
     },
     beginCountdown: function() {
       this.started = true;
-      this.timer = 90;
+      this.timer = 30;
       this.paused = true;
       this.playpause();
     }
@@ -77,7 +77,7 @@ export default {
       else return "timer timer--red"
     },
     progressWidth: function() {
-      return {width: `${parseInt(this.timer/9*10)}%`}
+      return {width: `${parseInt(this.timer/3*10)}%`}
     }
   },
   watch: {

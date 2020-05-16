@@ -2,12 +2,16 @@
   <div class="background">
     <div class="content">
       <div class="desc">
-        60 {{ $t('assessment.seconds') }}.<br />
+        30 {{ $t('assessment.seconds') }}.<br />
         <span class="t--capitalize">{{ $t('assessment.instructions') }}.</span>
       </div>
       <router-link to="/assessment/interactive" tag="div" class="button">
         <div class="button--go">{{ $t('assessment.go') }}</div>
-        <div class="button--arrow"><span>➤</span></div>
+        <div class="button--arrow">
+          <svg width="60%" height="60%" viewBox="0 0 47 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.77903 72.3043C7.85185 72.3043 5.99879 71.5631 4.51634 70.1548C1.62557 67.264 1.62557 62.5202 4.51634 59.6294L26.9754 37.0962L4.44223 14.563C1.55145 11.6722 1.55146 6.9284 4.44223 4.03763C7.333 1.14685 12.0768 1.14685 14.9676 4.03763L42.7635 31.8335C44.1718 33.2418 44.913 35.0949 44.913 37.0962C44.913 39.0975 44.0977 40.9506 42.7635 42.3589L15.0417 70.1548C13.5593 71.5631 11.6321 72.3043 9.77903 72.3043Z" fill="#DD2111" stroke="#DD2211" stroke-width="3"/>
+          </svg>
+        </div>
       </router-link>
     </div>
   </div>
@@ -75,6 +79,10 @@ export default {
   }
 
   .button--arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: $white;
     border-radius: 50%;
     color: $red;
@@ -82,15 +90,6 @@ export default {
     height: 6rem;
     position: relative;
     margin-left: 2rem;
-    span {
-      font-size: 4rem;
-      font-family: "Arial";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
   }
 }
 

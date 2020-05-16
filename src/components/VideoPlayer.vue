@@ -46,26 +46,28 @@ export default {
   height: 70vh;
   overflow: hidden;
 }
-.vjs-volume-panel,
-.vjs-picture-in-picture-control,
-.vjs-remaining-time,
-.vjs-fullscreen-control,
-.vjs-play-control {
-  display: none !important;
-}
-.vjs-progress-control {
-  padding: 1rem !important;
-}
 
-.vjs-play-progress {
-  background-color: $red !important;
-}
-.vjs-slider {
-  background-color: rgba(102, 102, 102, 0.5);
-}
-.vjs-progress-control {
-  background-color: rgba(242, 242, 242, 0.9);
-  color: $red;
+.vjs-control-bar {
+  height: 5em;
+
+  .vjs-volume-panel,
+  .vjs-picture-in-picture-control,
+  .vjs-remaining-time,
+  .vjs-fullscreen-control,
+  .vjs-play-control {
+    display: none !important;
+  }
+  .vjs-progress-control {
+    padding: 1rem !important;
+    background-color: rgba(242, 242, 242, 0.9);
+    color: $red;
+  }
+  .vjs-play-progress {
+    background-color: $red !important;
+  }
+  .vjs-slider {
+    background-color: rgba(102, 102, 102, 0.5);
+  }
 }
 
 </style>

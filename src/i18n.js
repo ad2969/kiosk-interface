@@ -10,6 +10,15 @@ const messages = {
             start: 'tap to start',
             aboutUs1: 'about',
             aboutUs2: 'us',
+            who: {
+                title: 'who we are',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+            },
+            why: {
+                title: 'why CPR Kiosks',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            },
+            back: 'back'
         },
         titles: {
             one: 'interactive tutorial',
@@ -35,6 +44,15 @@ const messages = {
             start: 'commencer',
             aboutUs1: 'à propos',
             aboutUs2: 'de nous',
+            who: {
+                title: 'qui nous sommes',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+            },
+            why: {
+                title: 'pourquoi CPR Kiosks',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            },
+            back: 'retour'
         },
         titles: {
             one: 'tutoriel interactif',
@@ -59,6 +77,15 @@ const messages = {
             start: 'tap to start',
             aboutUs1: 'about',
             aboutUs2: 'us',
+            who: {
+                title: 'who we are',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+            },
+            why: {
+                title: 'why CPR Kiosks',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            },
+            back: 'back'
         },
         titles: {
             one: 'interactive tutorial',

@@ -1,14 +1,14 @@
 <template>
     <div :class="active ? 'AboutMe' : 'AboutMe AboutMe--hidden'">
         <div class="col-2">
-            <h1>about us</h1>
-            <h1 class="back" @click="close">back</h1>
+            <h1>{{ $t('landing.aboutUs1') }} {{ $t('landing.aboutUs2') }}</h1>
+            <h1 class="back" @click="close">{{ $t('landing.back') }}</h1>
         </div>
         <div class="col-8">
-            <h1>who we are</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <h1>why CPR Kiosks</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h1>{{ $t('landing.who.title') }}</h1>
+            <p>{{ $t('landing.who.content') }}</p>
+            <h1>{{ $t('landing.why.title') }}</h1>
+            <p>{{ $t('landing.why.content') }}</p>
         </div>
     </div>
 </template>

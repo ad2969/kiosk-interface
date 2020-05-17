@@ -1,22 +1,34 @@
 <template>
   <div class="background">
+    <AboutMeModal
+      :active="modalOpen"
+      @closeModal="modalOpen = false"
+    />
     <div class="content">
       <h1 class="title t--capitalize">{{ $t("landing.title") }}</h1>
       <router-link to="/tutorial"
                    tag="span"
                    class="start-button t--uppercase"
       >{{ $t("landing.start") }}</router-link>
-      <router-link to=""
-                   tag="span"
-                   class="about-button t--lowercase"
-      >{{ $t('landing.aboutUs1') }}<br/>{{ $t('landing.aboutUs2') }}</router-link>
+      <span class="about-button t--lowercase"
+            @click="modalOpen = true"
+      >{{ $t('landing.aboutUs1') }}<br/>{{ $t('landing.aboutUs2') }}</span>
     </div>
   </div>
 </template>
 
 <script>
+import AboutMeModal from "@/components/AboutMeModal.vue"
 export default {
   name: 'Landing',
+  components: {
+    AboutMeModal
+  },
+  data() {
+    return {
+      modalOpen: false,
+    }
+  }
 }
 </script>
 

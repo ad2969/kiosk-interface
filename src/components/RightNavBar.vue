@@ -52,7 +52,8 @@ export default {
   },
   watch: {
     page: function(val) {
-      if(val === (this.numPages - 1)) {
+      // "down" disabled on 3 (assessment start)
+      if(val === (this.numPages - 1) || val === 3) {
         this.validateUp = true;
         this.validateDown = false;
       }

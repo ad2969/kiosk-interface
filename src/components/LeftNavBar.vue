@@ -58,8 +58,6 @@ export default {
   min-width: 7.5rem;
   padding-left: 1.5rem;
 }
-.page-title__title {
-}
 
 .a {
   height: 2.5rem;

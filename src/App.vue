@@ -18,6 +18,8 @@
 import RightNavBar from '@/components/RightNavBar'
 import LeftNavBar from '@/components/LeftNavBar'
 
+import { ROUTES } from "@/router"
+
 export default {
   name: 'app',
   components: {
@@ -26,7 +28,7 @@ export default {
   },
   data() {
     return {
-      numPages: 5,
+      numPages: 0,
       page: 0,
       pageTitle: 'page',
       assessing: false,
@@ -35,29 +37,32 @@ export default {
   methods: {
     navigate: function(id) {
       if(this.page == id) return;
-      switch(id) {
-        case 0:
-          this.$router.push("/");
-          break;
-        case 1:
-          this.$router.push("/tutorial");
-          break;
-        case 2:
-          this.$router.push("/practice");
-          break;
-        case 3:
-          this.$router.push("/assessment");
-          break;
-        case 4:
-          this.$router.push("/assessment/results");
-          break;
-        default:
-          console.error("Error Navigating: Index doesn't exist!");
-          this.$router.push("/");
-          break;
+
+      const redirectRoute = ROUTES.find((route) => id === route.navIndex);
+      if(redirectRoute) this.$router.push(redirectRoute.path);
+      else {
+        console.error("Error Navigating: Index doesn't exist!");
+        this.$router.push("/");
       }
       this.page = id;
+    },
+    checkAssessmentData: function() {
+
+      if(this.$store.assessmentData !== null) { // only use the pages that have a navIndex
+        this.numPages = ROUTES.filter((route) => route.navIndex != undefined).length
+      }
+      else { // only use the pages that have a navIndex and can render without assessment data
+        this.numPages = ROUTES.filter((route) => route.navIndex != undefined && !route.renderBeforeAssessment).length
+      }
+
     }
+  },
+  created() {
+    // do appropriate checks if assessment data exists
+    this.checkAssessmentData();
+
+    // watcher for changes to assessment data
+    this.$watch(() => this.$store.assessmentData, this.checkAssessmentData)
   },
   watch: {
     $route: {

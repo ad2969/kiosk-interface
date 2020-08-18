@@ -27,6 +27,11 @@ const messages = {
             four: 'assessment results',
             empty: '',
         },
+        practice: {
+            timeout: 'Would you like to be redirected to the assessment page?',
+            timeoutOk: 'take assessment',
+            timeoutStay: 'i need more time!',
+        },
         assessment: {
             seconds: 'seconds',
             secondsShort: 'sec',
@@ -62,6 +67,11 @@ const messages = {
             four: "résultats de l'évaluation",
             empty: '',
         },
+        practice: {
+            timeout: "Souhaitez-vous être redirigé vers la page d'évaluation?",
+            timeoutOk: 'faire une évaluation',
+            timeoutStay: "j'ai besoin de plus de temps!",
+        },
         assessment: {
             seconds: 'secondes',
             secondsShort: 'sec',
@@ -95,6 +105,11 @@ const messages = {
             three: 'assessment',
             four: 'assessment results',
             empty: '',
+        },
+        practice: {
+            timeout: 'Would you like to be redirected to the assessment page?',
+            timeoutOk: 'take assessment',
+            timeoutStay: 'i need more time!',
         },
         assessment: {
             seconds: 'seconds',

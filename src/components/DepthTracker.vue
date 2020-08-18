@@ -22,8 +22,8 @@ export default {
   },
   methods: {
     begin: function() {
-        this.startTime = new Date();
         this.counting = true;
+        this.startTime = new Date();
     },
     stop: function() {
         this.counting = false;
@@ -40,8 +40,8 @@ export default {
   watch: {
     input: function(depth, oldDepth) {
         this.pushDepth = depth;
-        if(!this.counting && oldDepth <= TRIGGER_LEVEL && depth !== TRIGGER_LEVEL) this.begin();
-        if(this.counting && depth <= TRIGGER_LEVEL && oldDepth !== TRIGGER_LEVEL) this.stop();
+        if(!this.counting && oldDepth <= TRIGGER_LEVEL && depth > TRIGGER_LEVEL) this.begin();
+        if(this.counting && depth <= TRIGGER_LEVEL && oldDepth > TRIGGER_LEVEL) this.stop();
     }
   }
 }

@@ -69,29 +69,27 @@ export default {
     }
   },
   methods: {
+    resetCountdownTime: function() {
+      this.timer = PRACTICE_TIME_TIMEOUT;
+    },
     restartCountdown: function() {
       this.showNotice = false;
       this.timer = PRACTICE_TIME_TIMEOUT;
+      clearInterval(this.countdown);
       this.countdown = setInterval(this.decrement, 1000);
     },
     decrement: function() {
       this.timer = this.timer - 1;
     },
     redirectToAssessment: function() {
-      this.$router.push('/assessment/results');
+      this.$router.push('/assessment');
     },
-
-    // ---
-    // TEMPORARY
     storeCompressionTime: function(time) {
-      console.log("Recorded compression time:", time)
+      console.log("Recorded compression time:", time);
       // store a maximum number of bpm rates to average from
       if(this.compressionTimes.length == PRACTICE_MAX_COMPRESSION_DATA) this.compressionTimes.shift();
       this.compressionTimes.push(time);
     }
-    // ---
-    // ---
-
   },
   mounted() {
     this.restartCountdown()
@@ -105,6 +103,8 @@ export default {
       }
     },
     compressionTimes: function(times) {
+      // reset countdown time due to activity
+      this.resetCountdownTime();
       // only calculate the bpm when there is enough time data
       if(times.length <= PRACTICE_MIN_COMPRESSION_DATA) this.bpm = 0;
       else {

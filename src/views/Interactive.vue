@@ -17,7 +17,7 @@
 
     <div class="content" v-if="!completed">
       <div :class="timerClass">
-        <span class="timer__num">{{timer}}</span>
+        <span class="timer__num">{{ timer }}</span>
         {{ $t('assessment.secondsShort') }}
       </div>
       <div class="progress">
@@ -27,7 +27,7 @@
 
     <div class="content" v-if="completed">
       <div class="loader"></div>
-      <span class="loading">Loading Your Results . . .</span>
+      <span class="loading t--capitalize">{{ $t('assessment.loadResults') }} . . .</span>
     </div>
 
     <div v-if="!completed"
@@ -38,14 +38,14 @@
 </template>
 
 <script>
+import { ASSESSMENT_TIME, ASSESSMENT_TIME_ALERT } from "@/constants"
 export default {
   name: 'Interactive',
   data() {
     return {
       started: false,
       paused: true,
-      timer: 30,
-      redTime: 10,
+      timer: ASSESSMENT_TIME,
       countdown: null,
       completed: false,
     }
@@ -66,14 +66,14 @@ export default {
     },
     beginCountdown: function() {
       this.started = true;
-      this.timer = 30;
+      this.timer = ASSESSMENT_TIME;
       this.paused = true;
       this.playpause();
     }
   },
   computed: {
     timerClass: function() {
-      if(this.timer > this.redTime) return "timer"
+      if(this.timer > ASSESSMENT_TIME_ALERT) return "timer"
       else return "timer timer--red"
     },
     progressWidth: function() {

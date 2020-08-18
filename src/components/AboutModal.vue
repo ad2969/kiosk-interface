@@ -1,5 +1,5 @@
 <template>
-    <div :class="active ? 'AboutMe' : 'AboutMe AboutMe--hidden'">
+    <div :class="active ? 'About' : 'About About--hidden'">
         <div class="col-2">
             <h1>{{ $t('landing.aboutUs1') }} {{ $t('landing.aboutUs2') }}</h1>
             <h1 class="back" @click="close">{{ $t('landing.back') }}</h1>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'AboutMeModal',
+  name: 'AboutModal',
   props: {
     active: Boolean
   },
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.AboutMe {
+.About {
     background: white;
     display: flex;
     flex-direction:row;
@@ -87,7 +87,7 @@ export default {
     }
 }
 
-.AboutMe--hidden {
+.About--hidden {
     transform: scale(0);
     transform-origin: bottom;
     transition: all 0.3s;

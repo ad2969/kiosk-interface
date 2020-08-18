@@ -35,6 +35,7 @@ const messages = {
             start1: 'start CPR',
             toStart: 'to',
             start2: 'start timer',
+            loadResults: 'loading your results',
         }
 
     },
@@ -69,6 +70,7 @@ const messages = {
             start1: 'démarrer la CPR',
             toStart: 'pour',
             start2: 'démarrer la minuterie',
+            loadResults: 'chargement de vos résultats',
         }
     },
     'zh': {
@@ -97,11 +99,12 @@ const messages = {
         assessment: {
             seconds: 'seconds',
             secondsShort: 'sec',
-            instructions: '',
+            instructions: 'hands-only CPR',
             go: "let's go",
             start1: 'start CPR',
             toStart: 'to',
             start2: 'start timer',
+            loadResults: 'loading your results',
         }
     }
 };

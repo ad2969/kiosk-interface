@@ -2,7 +2,7 @@
   <div class="background">
     <div class="content">
       <div class="desc">
-        30 {{ $t('assessment.seconds') }}.<br />
+        {{ ASSESSMENT_TIME }} {{ $t('assessment.seconds') }}.<br />
         <span class="t--capitalize">{{ $t('assessment.instructions') }}.</span>
       </div>
       <router-link to="/assessment/interactive" tag="div" class="button">
@@ -18,8 +18,14 @@
 </template>
 
 <script>
+import { ASSESSMENT_TIME } from "@/constants"
 export default {
   name: 'Assessment',
+  data() {
+    return {
+      ASSESSMENT_TIME: ASSESSMENT_TIME
+    }
+  }
 }
 </script>
 
@@ -49,13 +55,14 @@ export default {
   font-size: 5rem;
   text-align: left;
   margin-left: 2rem;
+  margin-right: 2rem;
   max-width: 40vw;
   line-height: 100%;
 }
 
 .button {
   cursor: pointer;
-  width: 30rem;
+  min-width: 30rem;
   height: 30rem;
   background-color: $red;
   border-radius: 50%;

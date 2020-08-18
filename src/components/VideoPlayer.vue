@@ -48,7 +48,7 @@ export default {
 }
 
 .vjs-control-bar {
-  height: 5em;
+  height: unset !important;
 
   .vjs-volume-panel,
   .vjs-picture-in-picture-control,
@@ -61,6 +61,10 @@ export default {
     padding: 1rem !important;
     background-color: rgba(242, 242, 242, 0.9);
     color: $red;
+
+    .vjs-time-tooltip {
+      font-size: 1rem !important;
+    }
   }
   .vjs-play-progress {
     background-color: $red !important;

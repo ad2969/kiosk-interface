@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <AboutMeModal
+    <AboutUs
       :active="modalOpen"
       @closeModal="modalOpen = false"
     />
@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import AboutMeModal from "@/components/AboutMeModal.vue"
+import AboutUs from "@/components/AboutModal.vue"
 export default {
   name: 'Landing',
   components: {
-    AboutMeModal
+    AboutUs
   },
   data() {
     return {
@@ -49,6 +49,7 @@ export default {
   text-align: left;
   line-height: 100%;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   max-width: 60vw;
 }
 

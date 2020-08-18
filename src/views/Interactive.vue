@@ -1,9 +1,12 @@
 <template>
   <div class="background">
+
+    <!-- TEMP -- TO DELETE -->
     <div class="back">
       <router-link to="/assessment" tag="span">BACK</router-link> -- 
       <router-link to="/assessment/results" tag="span">ONWARD</router-link>
     </div>
+    <!-- TEMP -- TO DELETE -->
 
     <div class="content--cover" v-if="!started" @click="beginCountdown">
       <div class="desc">
@@ -15,7 +18,7 @@
       </div>
     </div>
 
-    <div class="content" v-if="!completed">
+    <div class="content">
       <div :class="timerClass">
         <span class="timer__num">{{ timer }}</span>
         {{ $t('assessment.secondsShort') }}
@@ -25,14 +28,9 @@
       </div>
     </div>
 
-    <div class="content" v-if="completed">
-      <div class="loader"></div>
-      <span class="loading t--capitalize">{{ $t('assessment.loadResults') }} . . .</span>
-    </div>
-
-    <div v-if="!completed"
-         :class="paused ? 'button play' : 'button stop'"
-         @click="playpause"
+    <div
+      :class="paused ? 'button play' : 'button stop'"
+      @click="playpause"
     ><span></span></div>
   </div>
 </template>
@@ -47,7 +45,10 @@ export default {
       paused: true,
       timer: ASSESSMENT_TIME,
       countdown: null,
-      completed: false,
+
+      // data
+      compressionStartTime: null,
+      compressionData: [],
     }
   },
   methods: {
@@ -65,10 +66,20 @@ export default {
       this.timer = this.timer - 1;
     },
     beginCountdown: function() {
-      this.started = true;
-      this.timer = ASSESSMENT_TIME;
+      this.started = true;  // mark as started
+      this.timer = ASSESSMENT_TIME; // reset the timer
+      this.compressionStartTime = new Date();  // record the start timestamp
+
+      // start by setting pause to true, then "playing"
       this.paused = true;
       this.playpause();
+    },
+    storeCompressionTime: function(time) {
+      console.log("Recorded compression time:", time);
+      this.compressionData.push({
+        start: this.compressionStartTime,
+        end: time
+      });
     }
   },
   computed: {
@@ -85,8 +96,10 @@ export default {
       this.timer = ("0" + value).slice(-2)
       if(value == "00") {
         clearInterval(this.countdown);
-        setTimeout(() => { this.completed = true; }, 2000);
-        setTimeout(() => { this.$router.push('/assessment/results') }, 5000);
+        setTimeout(() => {
+          this.$actions.setRawAssessmentData(this.compressionData)
+          this.$router.push('/assessment/results');
+        }, 5000);
       }
     }
   }
@@ -96,13 +109,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 
-// REMOVE
+// TEMP -- TO DELETE
 .back {
   position: absolute;
   top: 10rem;
   cursor: pointer;
   color: $red;
 }
+// TEMP -- TO DELETE
 
 .content--cover {
   background-color: rgba(255,255,255,0.9);
@@ -226,23 +240,6 @@ export default {
     border-bottom: 1rem solid transparent;
     border-left: 1.5rem solid white;
   }
-}
-
-.loading {
-  padding-top: 2rem;
-  font-size: 1.5rem;
-}
-.loader {
-  border: 1rem solid $grey;
-  border-top: 1rem solid $red;
-  border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
-  animation: spin 1s linear infinite;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
 }
 
 </style>

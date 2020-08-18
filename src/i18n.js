@@ -25,7 +25,7 @@ const messages = {
             two: 'practice',
             three: 'assessment',
             four: 'assessment results',
-            five: 'assessment completion',
+            five: 'completion',
             empty: '',
         },
         practice: {
@@ -66,7 +66,7 @@ const messages = {
             two: 'entraine toi',
             three: 'évaluation',
             four: "résultats de l'évaluation",
-            five: "achèvement de l'évaluation",
+            five: 'achèvement',
             empty: '',
         },
         practice: {
@@ -106,7 +106,7 @@ const messages = {
             two: 'practice',
             three: 'assessment',
             four: 'assessment results',
-            five: 'assessment completion',
+            five: 'completion',
             empty: '',
         },
         practice: {

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Notice modal -->
     <transition name="modal" v-if="showNotice">
         <div class="modal-mask">
           <div class="modal-wrapper">
@@ -20,18 +21,51 @@
           </div>
         </div>
       </transition>
+
+      <!-- Tools -->
+      <div class="visualization-tools">
+
+        <div>Calculated: {{ bpm ? `${bpm.toFixed(0)} BPM` : 'There is not enough data to calculate BPM' }}</div>
+
+        <br />
+
+        <div>Use the slider below as the "input" for now</div>
+        <vue-slider :style="{ width: '20%', border: '2px solid black', margin: '0 auto' }" v-model="realCompressionDepth" />
+        <DepthTracker :input="realCompressionDepth" @submit="storeCompressionTime"/>
+
+      </div>
   </div>
 </template>
 
 <script>
-import { PRACTICE_TIME_TIMEOUT } from "@/constants"
+import {
+  PRACTICE_TIME_TIMEOUT,
+  PRACTICE_MIN_COMPRESSION_DATA,
+  PRACTICE_MAX_COMPRESSION_DATA,
+} from "@/constants"
+
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/antd.css'
+import DepthTracker from "@/components/DepthTracker"
+
 export default {
   name: 'Practice',
+  components: {
+    VueSlider,
+    DepthTracker,
+  },
   data() {
     return {
       timer: PRACTICE_TIME_TIMEOUT,
       countdown: null,
-      showNotice: false
+      showNotice: false,
+
+      // real-time stuff
+      bpm: null,
+      compressionTimes: [],
+
+      // temporary (for the real input)
+      realCompressionDepth: 0,
     }
   },
   methods: {
@@ -46,6 +80,18 @@ export default {
     redirectToAssessment: function() {
       this.$router.push('/assessment/results');
     },
+
+    // ---
+    // TEMPORARY
+    storeCompressionTime: function(time) {
+      console.log("Recorded compression time:", time)
+      // store a maximum number of bpm rates to average from
+      if(this.compressionTimes.length == PRACTICE_MAX_COMPRESSION_DATA) this.compressionTimes.shift();
+      this.compressionTimes.push(time);
+    }
+    // ---
+    // ---
+
   },
   mounted() {
     this.restartCountdown()
@@ -56,6 +102,14 @@ export default {
         clearInterval(this.countdown); // stop the timer
         this.timer = PRACTICE_TIME_TIMEOUT; // reset the timer
         this.showNotice = true; // show popup
+      }
+    },
+    compressionTimes: function(times) {
+      // only calculate the bpm when there is enough time data
+      if(times.length <= PRACTICE_MIN_COMPRESSION_DATA) this.bpm = 0;
+      else {
+        const averageTime = times.reduce((a, b) => a + b, 0) / times.length; // milliseconds for one "beat"
+        this.bpm = 60000 / averageTime; // calculate the beats per minute
       }
     }
   }
@@ -125,6 +179,13 @@ export default {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+}
+
+.visualization-tools {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 25vh;
+  position: relative;
 }
 
 </style>

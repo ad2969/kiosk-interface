@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e6b8eae3-0811-40a6-9f6b-c4a698c70506/deploy-status)](https://app.netlify.com/sites/kiosk-interface/deploys)
+
 # kiosk-interface
 
 ## Project setup

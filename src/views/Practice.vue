@@ -2,25 +2,25 @@
   <div>
     <!-- Notice modal -->
     <transition name="modal" v-if="showNotice">
-        <div class="modal-mask">
-          <div class="modal-wrapper">
+      <div class="modal-mask">
+        <div class="modal-wrapper">
 
-            <div class="modal-body">
-              <slot name="body">
-                {{ $t('practice.timeout') }}
-              </slot>
-            </div>
-
-            <div class="modal-footer">
-              <slot name="footer">
-                <button class="modal-button t--capitalize" @click="redirectToAssessment">{{ $t('practice.timeoutOk') }}</button>
-                <button class="modal-button red t--capitalize" @click="restartCountdown">{{ $t('practice.timeoutStay') }}</button>
-              </slot>
-            </div>
-
+          <div class="modal-body">
+            <slot name="body">
+              {{ $t('practice.timeout') }}
+            </slot>
           </div>
+
+          <div class="modal-footer">
+            <slot name="footer">
+              <button class="modal-button t--capitalize" @click="redirectToAssessment">{{ $t('practice.timeoutOk') }}</button>
+              <button class="modal-button red t--capitalize" @click="restartCountdown">{{ $t('practice.timeoutStay') }}</button>
+            </slot>
+          </div>
+
         </div>
-      </transition>
+      </div>
+    </transition>
 
       <!-- Tools -->
       <div class="visualization-tools">
@@ -32,7 +32,40 @@
         <div>Use the slider below as the "input" for now</div>
         <vue-slider :style="{ width: '20%', border: '2px solid black', margin: '0 auto' }" v-model="realCompressionDepth" />
         <DepthTracker :input="realCompressionDepth" @submit="storeCompressionTime"/>
-
+      </div>
+      <!-- Analytics -->
+      <div class="analytics">
+        <div class="pill">
+          <div class="pill--text">
+            Time remaining: {{ timer }}
+          </div>
+        </div>
+        <div class="pill">
+          <div class="pill--text">
+            Depth: 'add depth here'
+          </div>
+        </div>
+        <div class="pill">
+          <div class="pill--text">
+            Recoil meter: 'add recoil here'
+          </div>
+        </div>
+      </div>
+      <div class="analytics">
+        <div class="pill feedback">
+          <div class="pill--text">
+            <h1>Feedback:</h1>
+            <p :style="{ lineHeight: 1.6, textAlign: 'left' }">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis finibus justo id lectus lacinia, sit amet rhoncus tortor mattis. 
+              Nullam tincidunt fringilla erat ac eleifend. Sed pellentesque dignissim varius. Vivamus tempor non eros aliquet semper. 
+              Integer feugiat urna sit amet velit tristique, nec ultrices ipsum lacinia. Mauris id tellus ac metus auctor porttitor. 
+              Fusce mattis mattis hendrerit. Integer iaculis mi efficitur, porta magna in, vulputate enim. Nullam auctor ipsum aliquam massa porttitor vehicula. 
+              Fusce et ultrices ipsum. Nunc sed odio nunc. Aliquam convallis nibh et ornare sodales. 
+              Aliquam commodo, ipsum id convallis dignissim, justo lacus viverra nisi, vel maximus tortor turpis id turpis. 
+              Fusce quam urna, viverra quis purus vitae, molestie condimentum arcu. Nulla non massa non sapien condimentum maximus vel rhoncus est.
+            </p>
+          </div>
+        </div>
       </div>
   </div>
 </template>
@@ -186,6 +219,37 @@ export default {
   margin: 0 auto;
   margin-top: 25vh;
   position: relative;
+}
+
+.analytics {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.pill {
+  padding: 2rem;
+  background-color: $red;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
+  margin-bottom: 2em;
+
+  .pill--text {
+    font-family: "Avenir Next";
+    font-size: 1rem;
+    text-align: center;
+    line-height: 100%;
+    color: $white;
+    overflow-wrap: break-word;
+  }
+}
+
+.feedback {
+  width: 60%;
 }
 
 </style>
